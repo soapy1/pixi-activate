@@ -4,14 +4,61 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-clap = { version = "4.5.53", features = ["derive"] }
+clap = { version = "4.5.53", features = ["color", "derive"] }
 directories = "6.0.0"
+serde = "1.0.218"
 serde_json = "1.0.145"
-serde = { version = "1.0", features = ["derive"] }
 tokio = { version = "1.48.0", features = ["full"] }
-pixi = "0.15.2"
-rattler = { version = "0.39.0", default-features = false }
-rattler_cache = { version = "0.6.2", default-features = false }
-rattler_conda_types = { version = "0.42.0", default-features = false, features = [
-  "rayon",
-] }
+miette = { version = "7.6.0" }
+
+pixi_cli =  { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_api = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_auth = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_build_frontend = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_command_dispatcher = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_config = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_consts = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_core = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_diff = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_git = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_global = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_manifest = {  git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2",  features = ["rattler_lock"] }
+pixi_path = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_progress = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_pypi_spec = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_record = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_reporters = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_spec = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_task = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_utils = {  git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2",  default-features = false }
+pixi_uv_context = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+pixi_uv_conversions = { git = "https://github.com/prefix-dev/pixi.git", tag = "v0.62.2" }
+
+[patch.crates-io]
+# This is a temporary patch to get `cargo vendor` to work with the `uv` and pep508_rs` crates.
+reqwest-middleware = { git = "https://github.com/astral-sh/reqwest-middleware", rev = "7650ed76215a962a96d94a79be71c27bffde7ab2" }
+reqwest-retry = { git = "https://github.com/astral-sh/reqwest-middleware", rev = "7650ed76215a962a96d94a79be71c27bffde7ab2" }
+version-ranges = { git = "https://github.com/astral-sh/pubgrub", rev = "d8efd77673c9a90792da9da31b6c0da7ea8a324b" }
+
+# [patch."https://github.com/prefix-dev/pixi.git"]
+# pixi_cli = { path = "../pixi/crates/pixi_cli" }
+# pixi_api = { path = "../pixi/crates/pixi_api" }
+# pixi_auth = { path = "../pixi/crates/pixi_auth" }
+# pixi_build_frontend = { path = "../pixi/crates/pixi_build_frontend" }
+# pixi_command_dispatcher = { path = "../pixi/crates/pixi_command_dispatcher" }
+# pixi_config = { path = "../pixi/crates/pixi_config" }
+# pixi_consts =  { path = "../pixi/crates/pixi_consts" }
+# pixi_core = { path = "../pixi/crates/pixi_core" }
+# pixi_diff = { path = "../pixi/crates/pixi_diff" }
+# pixi_git = { path = "../pixi/crates/pixi_git" }
+# pixi_global = { path = "../pixi/crates/pixi_global" }
+# pixi_manifest = { path = "../pixi/crates/pixi_manifest" }
+# pixi_progress = { path = "../pixi/crates/pixi_progress" }
+# pixi_pypi_spec = { path = "../pixi/crates/pixi_pypi_spec" }
+# pixi_record = { path = "../pixi/crates/pixi_record" }
+# pixi_reporters = { path = "../pixi/crates/pixi_reporters" }
+# pixi_spec = { path = "../pixi/crates/pixi_spec" }
+# pixi_task = { path = "../pixi/crates/pixi_task" }
+# pixi_utils = { path = "../pixi/crates/pixi_utils" }
+# pixi_uv_context = { path = "../pixi/crates/pixi_uv_context" }
+# pixi_uv_conversions = { path = "../pixi/crates/pixi_uv_conversions" }

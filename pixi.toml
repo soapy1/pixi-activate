@@ -13,6 +13,7 @@ clippy = "cargo clippy --fix"
 
 [dependencies]
 rust = "==1.90.0"
+cargo-insta = "*"
 openssl = ">=3.5.4,<4"
 pkg-config = ">=0.29.2,<0.30"
 compilers = ">=1.11.0,<2"
